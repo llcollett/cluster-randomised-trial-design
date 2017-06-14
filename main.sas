@@ -1,6 +1,6 @@
 
 
-%include "P:\LSTM\Projects\TEEN TB\clusterTrialSampleSize.sas";
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
 %clusterTrialSampleSize(dset=samplesize,
                         alpha=0.05,alpha_comp=1,
                         power_l=0.6,power_u=0.9,power_inc=0.05,

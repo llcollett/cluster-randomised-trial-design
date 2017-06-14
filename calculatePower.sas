@@ -1,15 +1,5 @@
 
 %macro calculatePower();
-data _temp;
-%if &adapt=clusters %then %do;
-  do clusters=&clusters_l to &clusters_u by &clusters_inc;
-    _p0=&_p0; _p1=&_p1; n=&n; k=&k;
-    output;
-  end;
-%end;
-%else %do;
-  _p0=&_p0; _p1=&_p1; n=&n; k=&k; clusters=&clusters;
-%end;
 data &dset;
   set _temp;
   alpha=&alpha;
