@@ -80,14 +80,57 @@
                         calculate=power);
 
 %include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
-/*test 1: adapting cluster size to calculate power*/
+/*test 2: calculate power with 3 comparisons*/
 %clusterTrialSampleSize(dset=test_power2,
+                        alpha=0.05,alpha_comp=3,
+                        p0=6.8,p1=4,
+                        n=1400,
+						k=0.15,
+						clusters=10,
+                        calculate=power);
+
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 3: adapting cluster size to calculate power*/
+%clusterTrialSampleSize(dset=test_power3,
                         alpha=0.05,alpha_comp=1,
                         p0=6.8,p1=4,
                         n=1400,
 						k=0.15,
 						clusters_l=2,clusters_u=30,clusters_inc=2,
                         adapt=clusters,
+                        calculate=power);
+
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 4: adapting experimental prevalence to calculate power*/
+%clusterTrialSampleSize(dset=test_power4,
+                        alpha=0.05,alpha_comp=1,
+                        p0=6.8,p1_l=3,p1_u=5,p1_inc=0.1,
+                        n=1400,
+						k=0.15,
+						clusters=10,
+						adapt=p1,
+                        calculate=power);
+
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 5: adapting cluster size to calculate power*/
+%clusterTrialSampleSize(dset=test_power5,
+                        alpha=0.05,alpha_comp=1,
+                        p0=6.8,p1=4,
+                        n_l=100,n_u=2000,n_inc=100,
+						k=0.15,
+						clusters=10,
+						adapt=n,
+                        calculate=power);
+
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 6: adapting ICC to calculate power*/
+%clusterTrialSampleSize(dset=test_power6,
+                        alpha=0.05,alpha_comp=1,
+                        p0=6.8,p1=4,
+                        n=1400,
+						k_l=0.01,k_u=0.25,k_inc=0.01,
+						clusters=10,
+						adapt=k,
                         calculate=power);
 
 
