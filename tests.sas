@@ -133,6 +133,33 @@
 						adapt=k,
                         calculate=power);
 
+/*TESTS TO THROW ERRORS*/
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 1: not stating whether want to calculate sample size or power, not including alpha comparisons*/
+%clusterTrialSampleSize(dset=test_error1,
+                        alpha=0.05,
+						power=0.8,
+                        p0=6.8,p1=4,
+                        n=1400);
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 2: calculating sample size, not stated variable to adapt but not included all variable levels*/
+%clusterTrialSampleSize(dset=test_error2,
+                        alpha=0.05,alpha_comp=1,
+						power=0.8,
+                        p0=6.8,p1=4,
+                        n=1400,
+                        calculate=ss);
+%include "P:\LSTM\Projects\TEEN TB\Code\clusterTrialSampleSize.sas";
+/*test 3: calculating sample size, adapting power, not specified limits*/
+%clusterTrialSampleSize(dset=test_error3,
+                        alpha=0.05,alpha_comp=1,
+						power=0.8,
+                        p0=6.8,p1=4,
+                        n=1400,
+						k=0.15,
+						adapt=power,
+                        calculate=ss);
+
 
 *%clusterTrialSampleSize(dset=,alpha=,alpha_comp=,power=,power_l=,power_u=,power_inc=,p0=,p1=,
 p1_l=,p1_u=,p1_inc=,n=,n_l=,n_u=,n_inc=,k=,k_l=,k_u=,k_inc=,
